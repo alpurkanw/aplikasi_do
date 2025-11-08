@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title><?= $judul; ?></title>
 
     <!-- Custom fonts for this template -->
     <link href="<?= base_url("assets/adminsb/"); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -30,7 +30,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <?php $this->load->view('admin/01_sidebar'); ?>
+        <?php $this->load->view('kasir/01_sidebar'); ?>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -38,7 +38,7 @@
             <!-- Main Content -->
             <div id="content">
 
-                <?php $this->load->view('admin/02_topbar');                ?>
+                <?php $this->load->view('kasir/02_topbar');                ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -53,34 +53,42 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">LAPORAN PENGELUARAN UMUM PER PERUMAHAN </h6>
-                            <small>Pengeluaran selain untuk rumah</small>
+                            <h6 class="m-0 font-weight-bold text-primary">LAPORAN PEMBUKAAN DO </h6>
+                            Periode Tanggal <?= $tgl_awal; ?> sampai dengan <?= $tgl_akhir; ?>
                         </div>
                         <div class="card-body p-2">
 
-                            <!-- <h6>Jenis Transaksi : Uang Keluar | Kategori :                            </h6> -->
-
                             <div class="table-responsive">
                                 <table class="table table-striped table-hover table-bordered" id="laporanPenjualanKeluar">
-                                    <thead class="table-dark">
+                                    <thead class="table-primary">
                                         <tr>
                                             <th>No.</th>
-                                            <th>Perumahan</th>
-                                            <th>Total Pengeluaran </th>
+                                            <th>Nota DO</th>
+                                            <th>Customer</th>
+                                            <th>Tanggal Trx </th>
+                                            <th>Barang </th>
+                                            <th>Qty </th>
+                                            <th>Harga </th>
+                                            <th>Subtotal </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         // print_r($list_rumah); 
                                         ?>
-                                        <?php if (!empty($list_rumah)) : ?>
+                                        <?php if (!empty($dataDO)) : ?>
                                             <?php $no = 1; ?>
                                             <?php $grand_total = 0; ?>
-                                            <?php foreach ($list_rumah as $data) : ?>
+                                            <?php foreach ($dataDO as $data) : ?>
                                                 <tr>
                                                     <td><?= $no++; ?></td>
-                                                    <td><?= htmlspecialchars($data->nama_kateg); ?></td>
-                                                    <td>Rp <?= number_format($data->total_pengeluaran); ?></td>
+                                                    <td><?= $data["idcust"] . "-" . $data["namacust"]; ?></td>
+                                                    <td><?= $data["idcust"] . "-" . $data["namacust"]; ?></td>
+                                                    <td><?= $data["tglinp"]; ?></td>
+                                                    <td><?= $data["idbar"] . "-" . $data["namabar"]; ?></td>
+                                                    <td><?= $data["jum_beli"]; ?></td>
+                                                    <td><?= $data["harga_jual"]; ?></td>
+                                                    <td><?= $data["jum_beli"] * $data["harga_jual"]; ?></td>
 
                                                 </tr>
                                             <?php endforeach; ?>

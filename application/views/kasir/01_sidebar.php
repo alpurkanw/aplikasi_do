@@ -24,14 +24,14 @@
     <li class="nav-item ">
         <a class="nav-link" href="<?= base_url("kasir/Cdo/input_do"); ?>">
             <i class="fas fa-fw fa-table"></i>
-            <span>Pembelian DO</span></a>
+            <span>DO Masuk</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item ">
-        <a class="nav-link" href="<?= base_url("kasir/Cdo/ambil_do"); ?>">
+        <a class="nav-link" href="<?= base_url("kasir/Cdo/ambil_do_pilihcust"); ?>">
             <i class="fas fa-fw fa-table"></i>
-            <span>Pengeluaran DO</span></a>
+            <span>DO Keluar</span></a>
     </li>
 
 
@@ -48,12 +48,33 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item ">
+        <a class="nav-link" href="<?= base_url("kasir/Clap/trx_open_DO"); ?>">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Laporan Pembukaan DO</span></a>
+    </li>
+    <!-- Nav Item - Tables -->
+    <!-- <li class="nav-item ">
         <a class="nav-link" href="<?= base_url("kasir/Cdo/lap_sisa_do"); ?>">
             <i class="fas fa-fw fa-table"></i>
             <span>Laporan Sisa DO</span></a>
+    </li> -->
+
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#lap_keluar"
+            aria-expanded="true" aria-controls="lap_keluar">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Laporan Sisa DO</span>
+        </a>
+        <div id="lap_keluar" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                <a class="collapse-item" href="<?= base_url("kasir/Clap/lap_sisa_DO_allBar"); ?>">Semua Barang</a>
+                <a class="collapse-item" href="<?= base_url("kasir/Claporan/lap_out_rumah_per_perum_form"); ?>">Per nota</a>
+                <!-- <a class="collapse-item" href="cards.html">Pengeluaran Umum</a> -->
+            </div>
+        </div>
     </li>
-
-
 
 
     <!-- Divider -->
